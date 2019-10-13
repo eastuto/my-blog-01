@@ -1,0 +1,23 @@
+{
+  "name": "my-blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:reason": "bsb -clean-world -make-world -w",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "9.1.1",
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
+    "reason-react": "0.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "babel-plugin-bucklescript": "^0.5.3",
+    "bs-platform": "5.0.6",
+    "next-transpile-modules": "^2.3.1"
+  }
+}
