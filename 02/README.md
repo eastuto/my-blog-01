@@ -18,7 +18,7 @@ git clone https://github.com/eastuto/my-blog-01.git
 cd my-blog-01/02
 yarn
 yarn dev:reason
-yarn dev 
+yarn dev:next
 ```
 
 ### View the pages
