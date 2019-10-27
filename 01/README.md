@@ -2,7 +2,7 @@
 
 ### Description
 
-This repo accompanies the "Getting up and running with ReasonML, ReasonReact and Next.js" video tutorial.
+This repo accompanies the "Getting up and running with ReasonML, ReasonReact and Next.js" video tutorial - https://www.youtube.com/watch?v=ag4nUteMwkU
 
 ### Setup
 
@@ -15,7 +15,7 @@ Then get up and running with:
 
 ```
 git clone https://github.com/eastuto/my-blog-01.git
-cd my-blog-01 
+cd my-blog-01/01
 yarn
 yarn dev:reason
 yarn dev 

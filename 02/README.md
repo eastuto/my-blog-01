@@ -2,7 +2,7 @@
 
 ### Description
 
-This repo accompanies the "Getting up and running with ReasonML, ReasonReact and Next.js" video tutorial.
+This repo accompanies the "Styling pages, page layouts and Hooks with ReasonML React NextJS and Bulma" video tutorial - https://www.youtube.com/watch?v=c0RVYfun2ik
 
 ### Setup
 
@@ -15,16 +15,15 @@ Then get up and running with:
 
 ```
 git clone https://github.com/eastuto/my-blog-01.git
-cd my-blog-01 
+cd my-blog-01/02
 yarn
 yarn dev:reason
-yarn dev 
+yarn dev:next
 ```
 
 ### View the pages
 
 - Browse to [http://localhost:3000](http://localhost:3000)
-- Browse to [http://localhost:3000/goodbye](http://localhost:3000/goodbye)
 
 ### Third party documentation
 
@@ -34,5 +33,5 @@ For more info about Next.js, ReasonML, ReasonReact and Bucklescript  -
 - [Next.js docs](https://nextjs.org/docs)
 for info on 
 - [ReasonML](https://reasonml.github.io/)
-- [Bucklescript](https://bucklescript.github.io/)
-
+- [Bulma](https://bulma.io/)
+- 
