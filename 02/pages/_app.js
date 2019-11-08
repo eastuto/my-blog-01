@@ -1,7 +1,7 @@
 import React from 'react';
 import App from 'next/app';
 
-const Page = require('../src/components/Page/Page.bs').make;
+const Page = require('../src/components/layout/Page.bs').make;
 
 class BlogApp extends App {
   static async getInitialProps({ Component, ctx }) {
