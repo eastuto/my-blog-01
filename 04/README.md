@@ -1,4 +1,4 @@
-# my-blog-01 
+# my-blog-01 - Episode 04 
 
 ### Description
 
@@ -15,7 +15,7 @@ Then get up and running with:
 
 ```
 git clone https://github.com/eastuto/my-blog-01.git
-cd my-blog-01 
+cd my-blog-01/04 
 yarn
 yarn dev:reason
 yarn dev 
@@ -24,7 +24,6 @@ yarn dev
 ### View the pages
 
 - Browse to [http://localhost:3000](http://localhost:3000)
-- Browse to [http://localhost:3000/goodbye](http://localhost:3000/goodbye)
 
 ### Third party documentation
 
