@@ -2,7 +2,7 @@
 
 ### Description
 
-This repo accompanies the "Getting up and running with ReasonML, ReasonReact and Next.js" video tutorial.
+This repo accompanies the "ReasonML React Apollo Hooks + Bucklescript Belt.Option + Next.js - Episode 04" video tutorial - https://youtu.be/Uu-K2St3Bmo.
 
 ### Setup
 
