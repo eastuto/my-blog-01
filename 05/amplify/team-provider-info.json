@@ -8,7 +8,13 @@
             "DeploymentBucketName": "myblog-dev-20191027150741-deployment",
             "UnauthRoleName": "myblog-dev-20191027150741-unauthRole",
             "StackName": "myblog-dev-20191027150741",
-            "StackId": "arn:aws:cloudformation:ap-southeast-2:113393016076:stack/myblog-dev-20191027150741/c0c735d0-f86f-11e9-ab9b-0aa5ebf3bee6"
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:113393016076:stack/myblog-dev-20191027150741/c0c735d0-f86f-11e9-ab9b-0aa5ebf3bee6",
+            "AmplifyAppId": "d3ggzt5eau45rh"
+        },
+        "categories": {
+            "auth": {
+                "myblog2aa14ef2": {}
+            }
         }
     }
 }

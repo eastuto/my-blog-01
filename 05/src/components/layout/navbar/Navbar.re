@@ -42,6 +42,7 @@ let make = () => {
                 <a> {ReasonReact.string("contact")} </a>
               </Next.Link>
             </div>
+            <SigninButton />
           </div>
         </div>
       </div>

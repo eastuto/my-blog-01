@@ -1,6 +1,10 @@
 [@react.component]
 let make = (~tags: array(string)) => {
-  tags |> Array.map(tag => <Tag text=tag />) |> ReasonReact.array;
+  tags
+  |> Array.mapi((index, tag) =>
+       <Tag text=tag key={string_of_int(index) ++ "-" ++ tag} />
+     )
+  |> ReasonReact.array;
 };
 
 let default = make;

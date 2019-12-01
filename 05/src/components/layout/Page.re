@@ -1,10 +1,21 @@
+open UserTypes;
+
 [%bs.raw {|require('bulma')|}];
 
 Css.(global("p", [marginBottom(px(20))]));
 
+type state = {user};
+
+let reducer = (_, action) =>
+  switch (action) {
+  | UserLoggedIn => {user: Authenticated}
+  | UserLoggedOut => {user: Guest}
+  };
+
 [@react.component]
 let make = (~children) => {
-  <>
+  let (state, dispatch) = React.useReducer(reducer, {user: Guest});
+  <UserProvider value=(state.user, dispatch)>
     <Next.Head>
       <meta
         name="viewport"
@@ -15,5 +26,5 @@ let make = (~children) => {
     <Navbar />
     children
     <Footer />
-  </>;
+  </UserProvider>;
 };

@@ -2,7 +2,7 @@
 
 ### Description
 
-This repo accompanies the "Getting up and running with ReasonML, ReasonReact and Next.js" video tutorial.
+This repo accompanies the "AWS Amplify Authenticator with ReasonML, ReasonReact and Next.js" video tutorial.
 
 ### Setup
 
@@ -15,7 +15,7 @@ Then get up and running with:
 
 ```
 git clone https://github.com/eastuto/my-blog-01.git
-cd my-blog-01/04 
+cd my-blog-01/05 
 yarn
 yarn dev:reason
 yarn dev 

@@ -1,6 +1,10 @@
 import React from 'react';
 import App from 'next/app';
-import { ApolloProvider } from "@apollo/react-common";
+import { ApolloProvider } from "@apollo/react-hooks";
+import Amplify from 'aws-amplify'
+import awsconfig from '../src/aws-exports';
+
+Amplify.configure(awsconfig);
 
 import { withApollo } from "../src/util/withApollo";
 

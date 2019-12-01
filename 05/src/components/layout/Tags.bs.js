@@ -6,9 +6,10 @@ import * as Tag$MyBlog from "../Tag.bs.js";
 
 function Tags(Props) {
   var tags = Props.tags;
-  return $$Array.map((function (tag) {
+  return $$Array.mapi((function (index, tag) {
                 return React.createElement(Tag$MyBlog.make, {
-                            text: tag
+                            text: tag,
+                            key: String(index) + ("-" + tag)
                           });
               }), tags);
 }

@@ -4,7 +4,8 @@ import * as Css from "bs-css/src/Css.js";
 import * as React from "react";
 import * as Head from "next/head";
 import * as Footer$MyBlog from "./Footer.bs.js";
-import * as Navbar$MyBlog from "./Navbar.bs.js";
+import * as Navbar$MyBlog from "./navbar/Navbar.bs.js";
+import * as UserProvider$MyBlog from "../user/UserProvider.bs.js";
 
 ((require('bulma')));
 
@@ -13,9 +14,21 @@ Css.$$global("p", /* :: */[
       /* [] */0
     ]);
 
+function reducer(param, action) {
+  if (action) {
+    return /* record */[/* user : Guest */0];
+  } else {
+    return /* record */[/* user : Authenticated */1];
+  }
+}
+
 function Page(Props) {
   var children = Props.children;
-  return React.createElement(React.Fragment, undefined, React.createElement(Head.default, {
+  var match = React.useReducer(reducer, /* record */[/* user : Guest */0]);
+  return React.createElement(UserProvider$MyBlog.make, UserProvider$MyBlog.makeProps(/* tuple */[
+                  match[0][/* user */0],
+                  match[1]
+                ], null, /* () */0), React.createElement(Head.default, {
                   children: null
                 }, React.createElement("meta", {
                       content: "width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover",
@@ -26,6 +39,7 @@ function Page(Props) {
 var make = Page;
 
 export {
+  reducer ,
   make ,
   
 }

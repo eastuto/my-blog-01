@@ -4,6 +4,7 @@ import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
 import * as Link from "next/link";
 import * as NavbarStyles$MyBlog from "./NavbarStyles.bs.js";
+import * as SigninButton$MyBlog from "./SigninButton.bs.js";
 
 function Navbar(Props) {
   var match = React.useReducer((function (state, action) {
@@ -45,7 +46,7 @@ function Navbar(Props) {
                                 }, React.createElement(Link.default, {
                                       href: "/contact",
                                       children: React.createElement("a", undefined, "contact")
-                                    })))))));
+                                    })), React.createElement(SigninButton$MyBlog.make, { }))))));
 }
 
 var make = Navbar;
