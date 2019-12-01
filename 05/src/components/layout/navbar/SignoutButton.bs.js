@@ -4,8 +4,6 @@ import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
 import * as AwsAmplify from "aws-amplify";
 
-var signOut = AwsAmplify.Auth.signOut;
-
 function SignoutButton(Props) {
   var closeModal = Props.closeModal;
   return React.createElement("div", {
@@ -24,10 +22,9 @@ var make = SignoutButton;
 var $$default = SignoutButton;
 
 export {
-  signOut ,
   make ,
   $$default ,
   $$default as default,
   
 }
-/* signOut Not a pure module */
+/* react Not a pure module */

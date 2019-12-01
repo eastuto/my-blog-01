@@ -1,5 +1,4 @@
 [@bs.module "aws-amplify"] external auth: Js.t('a) = "Auth";
-let signOut = auth##signOut;
 
 [@react.component]
 let make = (~closeModal: 'a) => {
