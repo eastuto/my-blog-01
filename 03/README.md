@@ -2,7 +2,7 @@
 
 ### Description
 
-This repo accompanies the "Getting up and running with ReasonML, ReasonReact and Next.js" video tutorial.
+This repo accompanies the "Real quick GraphQL service with AWS Amplify & Appsync" video tutorial - https://youtu.be/cPUR2zYNA8A
 
 ### Setup
 
