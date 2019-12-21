@@ -19,7 +19,7 @@ This repo accompanies the "Real quick GraphQL service with AWS Amplify & Appsync
 
 ### Description
 
-This repo accompanies the "ReasonML React Apollo Hooks + Bucklescript Belt.Option + Next.js - Episode 04" video tutorial - [youtu.be/Uu-K2St3Bmo](https://youtu.be/Uu-K2St3Bmo).
+This repo accompanies the "ReasonML React Apollo Hooks + Bucklescript Belt.Option + Next.js - Episode 04" video tutorial - [youtu.be/Uu-K2St3Bmo](https://youtu.be/Uu-K2St3Bmo)
 
 # my-blog-01 - Episode 05
 
