@@ -24,8 +24,9 @@
     "reason-react",
     "reason-apollo",
     "reason-apollo-hooks",
-    "bs-css"
+    "bs-css",
+    "re-formality"
   ],
-  "ppx-flags": ["graphql_ppx/ppx"],
+  "ppx-flags": ["@baransu/graphql_ppx_re/ppx6"],
   "refmt": 3
 }

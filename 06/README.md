@@ -1,8 +1,8 @@
-# my-blog-01 - Episode 04 
+# my-blog-01 - Episode 06 
 
 ### Description
 
-This repo accompanies the "AWS Amplify Authenticator with ReasonML, ReasonReact and Next.js" video tutorial.
+This repo accompanies the "Forms with ReasonML, ReasonReact" video tutorial.
 
 ### Setup
 
@@ -15,7 +15,7 @@ Then get up and running with:
 
 ```
 git clone https://github.com/eastuto/my-blog-01.git
-cd my-blog-01/05 
+cd my-blog-01/06 
 yarn
 yarn dev:reason
 yarn dev 
@@ -23,7 +23,7 @@ yarn dev
 
 ### View the pages
 
-- Browse to [http://localhost:3000](http://localhost:3000)
+- Browse to [http://localhost:3000/createpost](http://localhost:3000/createpost)
 
 ### Third party documentation
 

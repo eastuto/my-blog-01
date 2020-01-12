@@ -9,7 +9,7 @@ if (typeof require !== 'undefined') {
 }
 
 module.exports = withPlugins([withCSS, withSass, withTM], {
-  transpileModules: ['bs-platform', 'bs-css', 'reason-apollo-hooks'],
+  transpileModules: ['bs-platform', 'bs-css', 'reason-apollo-hooks', 're-formality'],
   pageExtensions: ['jsx', 'js', 'bs.js'],
   resolve: {
     modules: ['sass_loader'],

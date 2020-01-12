@@ -1,4 +1,6 @@
-module ListPostsQueryConfig = [%graphql
+open ApolloHooks;
+
+module ListPostsQuery = [%graphql
   {|
     query ListPostsQuery {
       listPosts {
@@ -19,8 +21,6 @@ module ListPostsQueryConfig = [%graphql
   |}
 ];
 
-module ListPostQuery = ReasonApolloHooks.Query.Make(ListPostsQueryConfig);
-
 let parseDate = (createdAt: option(Js.Json.t)): string => {
   Belt.Option.(
     getWithDefault(createdAt, Js.Json.null)
@@ -31,7 +31,7 @@ let parseDate = (createdAt: option(Js.Json.t)): string => {
 
 [@react.component]
 let make = () => {
-  let (simple, _full) = ListPostQuery.use();
+  let (simple, _full) = useQuery(ListPostsQuery.definition);
   <Section
     title="Man Vs Code"
     subtitle="A blog application demonstrating ReasonML, ReasonReact and Next.js">
