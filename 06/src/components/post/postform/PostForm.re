@@ -23,7 +23,11 @@ let make = (~authorId: string) => {
     <form
       className="form" onSubmit={form.submit->Formality.Dom.preventDefault}>
       <div className="container" />
-      <Notification status={form.status} />
+      <Notification
+        status={form.status}
+        successMessage="Blog post has been saved"
+        errorMessage="Server error submitting blog post"
+      />
       <InputField
         inputId="post--title"
         label="Title"
