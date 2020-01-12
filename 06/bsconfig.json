@@ -1,0 +1,31 @@
+{
+  "name": "my-blog",
+  "reason": { "react-jsx": 3 },
+  "bsc-flags": ["-bs-super-errors"],
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "pages",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "es6",
+      "in-source": true
+    }
+  ],
+  "suffix": ".bs.js",
+  "namespace": true,
+  "bs-dependencies": [
+    "reason-react",
+    "reason-apollo",
+    "reason-apollo-hooks",
+    "bs-css"
+  ],
+  "ppx-flags": ["graphql_ppx/ppx"],
+  "refmt": 3
+}
