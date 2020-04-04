@@ -1,7 +1,12 @@
+type userDetails = {
+  email: string,
+  id: string,
+};
+
 type user =
   | Guest
-  | Authenticated;
+  | Authenticated(userDetails);
 
 type userAction =
-  | UserLoggedIn
+  | UserLoggedIn(userDetails)
   | UserLoggedOut;

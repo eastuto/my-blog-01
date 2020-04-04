@@ -1,5 +1,6 @@
 type Author @model {
   id: ID!,
+  userID: ID!
   firstName: String!
   lastName: String!
   email: AWSEmail!

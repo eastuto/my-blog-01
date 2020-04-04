@@ -39,7 +39,7 @@ let reducer = (state, action) =>
 
 [@react.component]
 let make = () => {
-  let (user, dispatchUserAction) = UserContext.useUser();
+  let (user, _) = UserContext.useUser();
   let (state, dispatchModalAction) =
     React.useReducer(
       reducer,
@@ -69,7 +69,7 @@ let make = () => {
            isSignUpModal=true
          />
        </div>
-     | Authenticated =>
+     | Authenticated(_) =>
        <SignoutButton closeModal={_ => dispatchModalAction(CloseModal)} />
      }}
   </div>;

@@ -17,11 +17,11 @@ Css.$$global("p", /* :: */[
 function reducer(param, action) {
   if (action) {
     return {
-            user: /* Guest */0
+            user: /* Authenticated */[action[0]]
           };
   } else {
     return {
-            user: /* Authenticated */1
+            user: /* Guest */0
           };
   }
 }

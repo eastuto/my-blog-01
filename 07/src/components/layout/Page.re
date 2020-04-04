@@ -8,7 +8,7 @@ type state = {user};
 
 let reducer = (_, action) =>
   switch (action) {
-  | UserLoggedIn => {user: Authenticated}
+  | UserLoggedIn(userDetails) => {user: Authenticated(userDetails)}
   | UserLoggedOut => {user: Guest}
   };
 

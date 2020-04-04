@@ -12,10 +12,3 @@ let context = React.createContext(initValue);
 // Create hooks for ease of access to the context value
 let useUser = () => React.useContext(context);
 
-let handleStateChange = (authstate: string, dispatchUserAction: dispatch) => {
-  switch (authstate) {
-  | "signIn" => dispatchUserAction(UserTypes.UserLoggedOut)
-  | "signedIn" => dispatchUserAction(UserTypes.UserLoggedIn)
-  | _ => ()
-  };
-};

@@ -2,11 +2,11 @@ open UserTypes;
 
 [@react.component]
 let make = (~children: React.element) => {
-  let (user, dispatchUserAction) = UserContext.useUser();
+  let (user, _) = UserContext.useUser();
   <>
     {switch (user) {
      | Guest => <Section title="403 Unauthorized" />
-     | Authenticated => children
+     | Authenticated(_) => children
      }}
   </>;
 };
