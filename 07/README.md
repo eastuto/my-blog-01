@@ -23,7 +23,7 @@ yarn dev
 
 ### View the pages
 
-- Browse to [http://localhost:3000/createpost](http://localhost:3000/author)
+- Browse to [http://localhost:3000/author](http://localhost:3000/author)
 
 ### Third party documentation
 
