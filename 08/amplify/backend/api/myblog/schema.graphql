@@ -1,0 +1,21 @@
+type Author @model {
+  id: ID!,
+  userID: ID!
+  firstName: String!
+  lastName: String!
+  email: AWSEmail!
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+  posts: [Post]! @connection(name: "Posts")
+}
+
+type Post @model {
+  id: ID!
+  title: String!
+  body: String!
+  tags: [String!]!
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+  author: Author! @connection(name: "Posts")
+}
+
