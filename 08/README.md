@@ -1,8 +1,8 @@
-# my-blog-01 - Episode 06 
+# my-blog-01 - Episode 08 
 
 ### Description
 
-This repo accompanies the "Managing your user details with Amplify Auth, AppSync and ReasonML Apollo Hooks" video tutorial.
+This repo accompanies the "GraphQL Mutations with ReasonML Apollo Hooks" video tutorial.
 
 ### Setup
 
@@ -15,7 +15,7 @@ Then get up and running with:
 
 ```
 git clone https://github.com/eastuto/my-blog-01.git
-cd my-blog-01/07 
+cd my-blog-01/08
 yarn
 yarn dev:reason
 yarn dev 
@@ -23,7 +23,7 @@ yarn dev
 
 ### View the pages
 
-- Browse to [http://localhost:3000/createpost](http://localhost:3000/author)
+- Browse to [http://localhost:3000/createpost](http://localhost:3000/createpost)
 
 ### Third party documentation
 
