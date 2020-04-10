@@ -3,14 +3,34 @@
 import * as React from "react";
 import * as Section$MyBlog from "../src/components/layout/Section.bs.js";
 import * as PostForm$MyBlog from "../src/components/post/postform/PostForm.bs.js";
+import * as AuthorQuery$MyBlog from "../src/components/author/AuthorQuery.bs.js";
+import * as UserContext$MyBlog from "../src/components/user/UserContext.bs.js";
 
 function Createpost(Props) {
+  var match = UserContext$MyBlog.useUser(/* () */0);
+  var user = match[0];
+  var tmp;
+  if (user) {
+    var authorResult = AuthorQuery$MyBlog.getAuthorByUserId(user[0].id);
+    if (authorResult.length !== 1) {
+      tmp = React.createElement(Section$MyBlog.make, {
+            title: "Sorry you're not an Author"
+          });
+    } else {
+      var author = authorResult[0];
+      tmp = React.createElement(PostForm$MyBlog.make, {
+            authorId: author.id
+          });
+    }
+  } else {
+    tmp = React.createElement(Section$MyBlog.make, {
+          title: "403 Unauthorized"
+        });
+  }
   return React.createElement(Section$MyBlog.make, {
               title: "Create Post",
               subtitle: "",
-              children: React.createElement(PostForm$MyBlog.make, {
-                    authorId: "1234"
-                  })
+              children: tmp
             });
 }
 

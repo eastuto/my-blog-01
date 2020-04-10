@@ -13,7 +13,10 @@ type state = {
 };
 
 type message = string;
-type submissionError = unit;
+
+// Will use this Variant type in the event of server error on mutation
+type submissionError =
+  | UnexpectedServerError;
 
 module TitleField = {
   let update = (state, value) => {...state, title: value};

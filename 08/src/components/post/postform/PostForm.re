@@ -1,22 +1,65 @@
+open ApolloHooks;
 module PostFormHook = Formality.Make(PostFormConfig);
+
+module PostMutation = [%graphql
+  {|
+  mutation PostMutation($title: String!, $body: String!, $tags: [String!]!, $postAuthorId: ID!) {
+    createPost(input: {title: $title, body: $body, tags: $tags, postAuthorId: $postAuthorId}) {
+        id
+        title
+        body
+        tags
+      }
+  }
+|}
+];
 
 [@react.component]
 let make = (~authorId: string) => {
   let initialState =
     PostFormConfig.{title: "", body: "", tags: "", postAuthorId: authorId};
+  let (postMutation, _simple, _full) = useMutation(PostMutation.definition);
+  let stub = {"id": "", "title": "", "body": "", "tags": [|""|]};
   let form =
     PostFormHook.useForm(
       ~initialState,
       ~onSubmit=(state, form) => {
-        Js.log2("Submitted with:", state);
-        Js.Global.setTimeout(
-          () => {
-            form.notifyOnSuccess(None);
-            form.reset->Js.Global.setTimeout(3000)->ignore;
-          },
-          500,
+        postMutation(
+          ~variables=
+            PostMutation.makeVariables(
+              ~title=state.title,
+              ~body=state.body,
+              ~tags=Js_string.split(",", state.tags), // convert comma separate string into array of strings
+              ~postAuthorId=authorId,
+              (),
+            ),
+          (),
         )
-        ->ignore;
+        |> Js.Promise.then_(result => {
+             switch (result) {
+             | ApolloHooksMutation.Data(response) =>
+               Belt.Option.(
+                 response##createPost
+                 ->mapWithDefault(stub, item =>
+                     {
+                       "id": item##id,
+                       "title": item##title,
+                       "body": item##body,
+                       "tags": item##tags,
+                     }
+                   )
+               )
+               ->ignore;
+               form.notifyOnSuccess(None);
+             | Loading => ignore()
+             | NotCalled => ignore()
+             | Error(_) => form.notifyOnFailure(UnexpectedServerError)
+             | NoData => form.notifyOnFailure(UnexpectedServerError)
+             };
+             Js.Promise.resolve();
+           })
+        |> ignore;
+        Js.log2("Submitted with:", state);
       },
     );
   <div className="container">

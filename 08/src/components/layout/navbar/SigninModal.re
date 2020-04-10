@@ -18,7 +18,7 @@ let handleStateChange =
 
 [@react.component]
 let make = (~isActive: bool=?, ~closeModal: 'a=?, ~isSignUpModal: bool=false) => {
-  let (user, dispatchUserAction) = UserContext.useUser();
+  let (_, dispatchUserAction) = UserContext.useUser();
   <Modal isActive closeModal>
     {isSignUpModal
        ? <Amplify.Authenticator

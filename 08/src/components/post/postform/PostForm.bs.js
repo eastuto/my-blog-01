@@ -2,6 +2,13 @@
 
 import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
+import * as Js_exn from "bs-platform/lib/es6/js_exn.js";
+import * as Js_dict from "bs-platform/lib/es6/js_dict.js";
+import * as Js_json from "bs-platform/lib/es6/js_json.js";
+import * as Js_option from "bs-platform/lib/es6/js_option.js";
+import * as ApolloHooks from "reason-apollo-hooks/src/ApolloHooks.bs.js";
+import * as Belt_Option from "bs-platform/lib/es6/belt_Option.js";
+import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as Formality__Form from "re-formality/src/Formality__Form.bs.js";
 import * as InputField$MyBlog from "../../layout/form/InputField.bs.js";
 import * as Notification$MyBlog from "../../layout/form/Notification.bs.js";
@@ -14,6 +21,205 @@ var PostFormHook = Formality__Form.Make({
       validators: PostFormConfig$MyBlog.validators
     });
 
+var ppx_printed_query = "mutation PostMutation($title: String!, $body: String!, $tags: [String!]!, $postAuthorId: ID!)  {\ncreatePost(input: {title: $title, body: $body, tags: $tags, postAuthorId: $postAuthorId})  {\nid  \ntitle  \nbody  \ntags  \n}\n\n}\n";
+
+function parse(value) {
+  var value$1 = Js_option.getExn(Js_json.decodeObject(value));
+  var match = Js_dict.get(value$1, "createPost");
+  var tmp;
+  if (match !== undefined) {
+    var value$2 = Caml_option.valFromOption(match);
+    var match$1 = Js_json.decodeNull(value$2);
+    if (match$1 !== undefined) {
+      tmp = undefined;
+    } else {
+      var value$3 = Js_option.getExn(Js_json.decodeObject(value$2));
+      var match$2 = Js_dict.get(value$3, "id");
+      var tmp$1;
+      if (match$2 !== undefined) {
+        var value$4 = Caml_option.valFromOption(match$2);
+        var match$3 = Js_json.decodeString(value$4);
+        tmp$1 = match$3 !== undefined ? match$3 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(value$4));
+      } else {
+        tmp$1 = Js_exn.raiseError("graphql_ppx: Field id on type Post is missing");
+      }
+      var match$4 = Js_dict.get(value$3, "title");
+      var tmp$2;
+      if (match$4 !== undefined) {
+        var value$5 = Caml_option.valFromOption(match$4);
+        var match$5 = Js_json.decodeString(value$5);
+        tmp$2 = match$5 !== undefined ? match$5 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(value$5));
+      } else {
+        tmp$2 = Js_exn.raiseError("graphql_ppx: Field title on type Post is missing");
+      }
+      var match$6 = Js_dict.get(value$3, "body");
+      var tmp$3;
+      if (match$6 !== undefined) {
+        var value$6 = Caml_option.valFromOption(match$6);
+        var match$7 = Js_json.decodeString(value$6);
+        tmp$3 = match$7 !== undefined ? match$7 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(value$6));
+      } else {
+        tmp$3 = Js_exn.raiseError("graphql_ppx: Field body on type Post is missing");
+      }
+      var match$8 = Js_dict.get(value$3, "tags");
+      tmp = {
+        id: tmp$1,
+        title: tmp$2,
+        body: tmp$3,
+        tags: match$8 !== undefined ? Js_option.getExn(Js_json.decodeArray(Caml_option.valFromOption(match$8))).map((function (value) {
+                  var match = Js_json.decodeString(value);
+                  if (match !== undefined) {
+                    return match;
+                  } else {
+                    return Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(value));
+                  }
+                })) : Js_exn.raiseError("graphql_ppx: Field tags on type Post is missing")
+      };
+    }
+  } else {
+    tmp = undefined;
+  }
+  return {
+          createPost: tmp
+        };
+}
+
+function make(title, body, tags, postAuthorId, param) {
+  return {
+          query: ppx_printed_query,
+          variables: Js_dict.fromArray(/* array */[
+                  /* tuple */[
+                    "title",
+                    title
+                  ],
+                  /* tuple */[
+                    "body",
+                    body
+                  ],
+                  /* tuple */[
+                    "tags",
+                    tags.map((function (prim) {
+                            return prim;
+                          }))
+                  ],
+                  /* tuple */[
+                    "postAuthorId",
+                    postAuthorId
+                  ]
+                ].filter((function (param) {
+                      return !Js_json.test(param[1], /* Null */5);
+                    }))),
+          parse: parse
+        };
+}
+
+function makeWithVariables(variables) {
+  var title = variables.title;
+  var body = variables.body;
+  var tags = variables.tags;
+  var postAuthorId = variables.postAuthorId;
+  return {
+          query: ppx_printed_query,
+          variables: Js_dict.fromArray(/* array */[
+                  /* tuple */[
+                    "title",
+                    title
+                  ],
+                  /* tuple */[
+                    "body",
+                    body
+                  ],
+                  /* tuple */[
+                    "tags",
+                    tags.map((function (prim) {
+                            return prim;
+                          }))
+                  ],
+                  /* tuple */[
+                    "postAuthorId",
+                    postAuthorId
+                  ]
+                ].filter((function (param) {
+                      return !Js_json.test(param[1], /* Null */5);
+                    }))),
+          parse: parse
+        };
+}
+
+function makeVariables(title, body, tags, postAuthorId, param) {
+  return Js_dict.fromArray(/* array */[
+                /* tuple */[
+                  "title",
+                  title
+                ],
+                /* tuple */[
+                  "body",
+                  body
+                ],
+                /* tuple */[
+                  "tags",
+                  tags.map((function (prim) {
+                          return prim;
+                        }))
+                ],
+                /* tuple */[
+                  "postAuthorId",
+                  postAuthorId
+                ]
+              ].filter((function (param) {
+                    return !Js_json.test(param[1], /* Null */5);
+                  })));
+}
+
+function definition_002(graphql_ppx_use_json_variables_fn, title, body, tags, postAuthorId, param) {
+  return Curry._1(graphql_ppx_use_json_variables_fn, Js_dict.fromArray(/* array */[
+                    /* tuple */[
+                      "title",
+                      title
+                    ],
+                    /* tuple */[
+                      "body",
+                      body
+                    ],
+                    /* tuple */[
+                      "tags",
+                      tags.map((function (prim) {
+                              return prim;
+                            }))
+                    ],
+                    /* tuple */[
+                      "postAuthorId",
+                      postAuthorId
+                    ]
+                  ].filter((function (param) {
+                        return !Js_json.test(param[1], /* Null */5);
+                      }))));
+}
+
+var definition = /* tuple */[
+  parse,
+  ppx_printed_query,
+  definition_002
+];
+
+function ret_type(f) {
+  return { };
+}
+
+var MT_Ret = { };
+
+var PostMutation = {
+  ppx_printed_query: ppx_printed_query,
+  query: ppx_printed_query,
+  parse: parse,
+  make: make,
+  makeWithVariables: makeWithVariables,
+  makeVariables: makeVariables,
+  definition: definition,
+  ret_type: ret_type,
+  MT_Ret: MT_Ret
+};
+
 function PostForm(Props) {
   var authorId = Props.authorId;
   var initialState = {
@@ -22,13 +228,42 @@ function PostForm(Props) {
     tags: "",
     postAuthorId: authorId
   };
+  var match = ApolloHooks.useMutation(undefined, undefined, undefined, undefined, undefined, undefined, definition);
+  var postMutation = match[0];
+  var stub = {
+    id: "",
+    title: "",
+    body: "",
+    tags: /* array */[""]
+  };
   var form = Curry._2(PostFormHook.useForm, initialState, (function (state, form) {
+          Curry._6(postMutation, Caml_option.some(makeVariables(state.title, state.body, state.tags.split(","), authorId, /* () */0)), undefined, undefined, undefined, undefined, /* () */0).then((function (result) {
+                  if (typeof result === "number") {
+                    switch (result) {
+                      case /* Loading */0 :
+                      case /* NotCalled */1 :
+                          break;
+                      case /* NoData */2 :
+                          Curry._1(form.notifyOnFailure, /* UnexpectedServerError */0);
+                          break;
+                      
+                    }
+                  } else if (result.tag) {
+                    Curry._1(form.notifyOnFailure, /* UnexpectedServerError */0);
+                  } else {
+                    Belt_Option.mapWithDefault(result[0].createPost, stub, (function (item) {
+                            return {
+                                    id: item.id,
+                                    title: item.title,
+                                    body: item.body,
+                                    tags: item.tags
+                                  };
+                          }));
+                    Curry._1(form.notifyOnSuccess, undefined);
+                  }
+                  return Promise.resolve(/* () */0);
+                }));
           console.log("Submitted with:", state);
-          setTimeout((function (param) {
-                  Curry._1(form.notifyOnSuccess, undefined);
-                  setTimeout(form.reset, 3000);
-                  return /* () */0;
-                }), 500);
           return /* () */0;
         }));
   var partial_arg = form.submit;
@@ -89,11 +324,12 @@ function PostForm(Props) {
                     })));
 }
 
-var make = PostForm;
+var make$1 = PostForm;
 
 export {
   PostFormHook ,
-  make ,
+  PostMutation ,
+  make$1 as make,
   
 }
 /* PostFormHook Not a pure module */

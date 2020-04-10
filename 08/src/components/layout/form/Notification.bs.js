@@ -12,16 +12,12 @@ function $$Notification(Props) {
     } else {
       return React.createElement("div", {
                   className: "notification is-success"
-                }, React.createElement("button", {
-                      className: "delete"
-                    }), successMessage);
+                }, successMessage);
     }
   } else if (status.tag) {
     return React.createElement("div", {
                 className: "notification is-danger"
-              }, React.createElement("button", {
-                    className: "delete"
-                  }), errorMessage);
+              }, errorMessage);
   } else {
     return null;
   }
